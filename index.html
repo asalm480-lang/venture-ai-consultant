@@ -1,224 +1,416 @@
 <!DOCTYPE html>
 <html lang="ar" dir="rtl" id="htmlRoot">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title id="pageTitle">بيزنس ريفيو | مستشار الأعمال والذكاء الاصطناعي</title>
-    <style>
-        :root {
-            --primary: #4f46e5;
-            --primary-hover: #4338ca;
-            --bg-color: #0b0f19;
-            --card-bg: #111827;
-            --border-color: #1f2937;
-            --text-main: #f9fafb;
-            --text-muted: #9ca3af;
-        }
-        * { box-sizing: border-box; margin: 0; padding: 0; font-family: system-ui, sans-serif; }
-        body { background-color: var(--bg-color); color: var(--text-main); line-height: 1.7; padding: 20px; }
-        .wrapper { max-width: 900px; margin: 30px auto; }
-        header { text-align: center; margin-bottom: 40px; position: relative; }
-        .lang-switch { position: absolute; top: 0; left: 0; }
-        [dir="ltr"] .lang-switch { left: auto; right: 0; }
-        .lang-btn { background: #1f2937; color: #fff; border: 1px solid #374151; padding: 6px 12px; border-radius: 8px; cursor: pointer; font-size: 0.85rem; }
-        .brand-badge { display: inline-block; background: rgba(79, 70, 229, 0.15); color: #818cf8; padding: 6px 16px; border-radius: 20px; font-size: 0.9rem; font-weight: 600; margin-bottom: 15px; border: 1px solid rgba(79, 70, 229, 0.3); }
-        h1 { font-size: 2.2rem; margin-bottom: 10px; color: #fff; }
-        p.desc { color: var(--text-muted); font-size: 1.1rem; }
-        .card { background: var(--card-bg); border: 1px solid var(--border-color); border-radius: 16px; padding: 30px; box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.3); margin-bottom: 25px; }
-        .form-group { margin-bottom: 20px; }
-        label { display: block; margin-bottom: 8px; font-weight: 600; color: #e5e7eb; text-align: start; }
-        input[type="password"], textarea { width: 100%; padding: 14px; border-radius: 10px; border: 1px solid var(--border-color); background: #030712; color: #fff; font-size: 1rem; text-align: start; }
-        textarea { height: 140px; resize: vertical; }
-        .btn { background: var(--primary); color: white; border: none; padding: 14px 28px; font-size: 1.05rem; font-weight: bold; border-radius: 10px; cursor: pointer; width: 100%; transition: all 0.3s ease; }
-        .btn:hover { background: var(--primary-hover); }
-        .output-box { background: #030712; border: 1px solid var(--border-color); border-radius: 12px; padding: 25px; margin-top: 30px; display: none; white-space: pre-wrap; font-size: 1rem; color: #e5e7eb; line-height: 1.8; text-align: start; }
-        .loading { text-align: center; color: #818cf8; font-weight: 600; padding: 20px; display: none; }
-        footer { text-align: center; color: var(--text-muted); font-size: 0.9rem; margin-top: 40px; }
-    </style>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title id="pageTitle">بيزنس ريفيو | مركز دراسات الجدوى وأبحاث السوق</title>
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=IBM+Plex+Sans+Arabic:wght@400;500;600;700&family=Amiri:wght@400;700&family=IBM+Plex+Mono:wght@400;500&display=swap');
+
+  :root{
+    --ink:#0f2942;
+    --ink-2:#16385a;
+    --paper:#f6f1e4;
+    --paper-2:#efe7d3;
+    --gold:#a9762c;
+    --gold-light:#c99a4d;
+    --sage:#3f6b5c;
+    --rust:#9c3b2e;
+    --shell:#0a1622;
+    --shell-2:#0e2032;
+    --line:rgba(169,118,44,0.35);
+    --text-dark:#1c1c1c;
+    --text-muted:#5b6a76;
+    --panel-text:#dfe7ee;
+    --panel-muted:#8ea2b3;
+  }
+  *{box-sizing:border-box;margin:0;padding:0;}
+  html,body{background:var(--shell);}
+  body{
+    font-family:'IBM Plex Sans Arabic','Tajawal',system-ui,sans-serif;
+    color:var(--panel-text);
+    line-height:1.85;
+    background:
+      radial-gradient(1200px 500px at 15% -10%, rgba(169,118,44,0.10), transparent 60%),
+      radial-gradient(900px 500px at 100% 0%, rgba(63,107,92,0.12), transparent 55%),
+      var(--shell);
+    min-height:100vh;
+    padding:22px 14px 60px;
+  }
+  [dir="ltr"] body{font-family:'IBM Plex Sans Arabic','Inter',system-ui,sans-serif;}
+  .wrapper{max-width:920px;margin:0 auto;}
+
+  /* ---------- Letterhead top bar ---------- */
+  .masthead{
+    display:flex;align-items:center;justify-content:space-between;
+    border-bottom:1px solid var(--line);
+    padding-bottom:16px;margin-bottom:26px;
+  }
+  .mark{display:flex;align-items:center;gap:10px;}
+  .mark-glyph{
+    width:38px;height:38px;border-radius:50%;
+    border:1.5px solid var(--gold-light);
+    display:flex;align-items:center;justify-content:center;
+    font-family:'Amiri',serif;font-weight:700;color:var(--gold-light);font-size:1.15rem;
+    flex-shrink:0;
+  }
+  .mark-text .brand-line1{font-weight:700;font-size:0.98rem;color:#fff;letter-spacing:.3px;}
+  .mark-text .brand-line2{font-size:0.72rem;color:var(--panel-muted);}
+  .lang-btn{
+    background:transparent;color:var(--panel-muted);border:1px solid rgba(255,255,255,0.14);
+    padding:7px 14px;border-radius:999px;cursor:pointer;font-size:0.78rem;
+    font-family:inherit;transition:.2s;
+  }
+  .lang-btn:hover{border-color:var(--gold-light);color:#fff;}
+
+  /* ---------- Hero ---------- */
+  .hero{margin-bottom:30px;}
+  .eyebrow{
+    display:inline-flex;align-items:center;gap:8px;
+    font-family:'IBM Plex Mono',monospace;font-size:0.72rem;letter-spacing:1.5px;
+    color:var(--gold-light);text-transform:uppercase;margin-bottom:14px;
+  }
+  .eyebrow::before{content:"";width:22px;height:1px;background:var(--gold-light);}
+  h1{
+    font-family:'Amiri',serif;font-weight:700;
+    font-size:1.9rem;color:#fff;line-height:1.5;max-width:15ch;margin-bottom:12px;
+  }
+  p.desc{color:var(--panel-muted);font-size:1rem;max-width:52ch;}
+
+  /* ---------- Console (input) ---------- */
+  .console{
+    background:linear-gradient(180deg, var(--shell-2), #0a1c2c);
+    border:1px solid rgba(255,255,255,0.08);
+    border-radius:18px;padding:26px 22px;
+    box-shadow:0 25px 50px -20px rgba(0,0,0,0.6);
+    margin-bottom:26px;
+  }
+  .field{margin-bottom:16px;}
+  .field label{
+    display:block;margin-bottom:8px;font-weight:600;font-size:0.9rem;color:#cfd9e2;
+  }
+  .field .hint{display:block;font-weight:400;font-size:0.76rem;color:var(--panel-muted);margin-top:4px;}
+  .row-2{display:grid;grid-template-columns:1fr 1fr;gap:12px;}
+  @media (max-width:520px){.row-2{grid-template-columns:1fr;}}
+  input[type="text"], textarea{
+    width:100%;padding:13px 14px;border-radius:10px;
+    border:1px solid rgba(255,255,255,0.12);background:#061019;color:#fff;
+    font-size:0.95rem;font-family:inherit;
+  }
+  textarea{height:120px;resize:vertical;}
+  input::placeholder, textarea::placeholder{color:#556270;}
+  input:focus, textarea:focus{outline:2px solid var(--gold-light);outline-offset:1px;}
+
+  .btn{
+    background:linear-gradient(135deg, var(--gold), var(--gold-light));
+    color:#1a1200;border:none;padding:15px 20px;font-size:1rem;font-weight:700;
+    border-radius:10px;cursor:pointer;width:100%;font-family:inherit;
+    transition:transform .15s ease, box-shadow .15s ease;
+    box-shadow:0 10px 25px -8px rgba(169,118,44,0.55);
+  }
+  .btn:hover{transform:translateY(-1px);box-shadow:0 14px 30px -8px rgba(169,118,44,0.7);}
+  .btn:active{transform:translateY(0);}
+  .btn:disabled{opacity:.55;cursor:not-allowed;transform:none;}
+
+  .loading{
+    display:none;align-items:center;gap:12px;justify-content:center;
+    padding:20px;color:var(--gold-light);font-size:0.92rem;
+  }
+  .spinner{
+    width:18px;height:18px;border-radius:50%;
+    border:2px solid rgba(201,154,77,0.25);border-top-color:var(--gold-light);
+    animation:spin 0.8s linear infinite;flex-shrink:0;
+  }
+  @keyframes spin{to{transform:rotate(360deg);}}
+
+  .error-box{
+    display:none;background:rgba(156,59,46,0.12);border:1px solid rgba(156,59,46,0.4);
+    color:#e8a99c;padding:14px 16px;border-radius:10px;font-size:0.88rem;margin-top:14px;
+    white-space:pre-wrap;word-break:break-word;
+  }
+
+  /* ---------- Report (paper) ---------- */
+  .report{
+    display:none;
+    background:var(--paper);
+    color:var(--text-dark);
+    border-radius:4px;
+    position:relative;
+    overflow:hidden;
+    box-shadow:0 30px 60px -25px rgba(0,0,0,0.65);
+  }
+  .report::before{
+    content:"";position:absolute;inset:0;pointer-events:none;
+    background-image:repeating-linear-gradient(135deg, rgba(169,118,44,0.035) 0px, rgba(169,118,44,0.035) 1px, transparent 1px, transparent 26px);
+  }
+  .report-inner{position:relative;padding:36px 26px 30px;}
+  @media (min-width:600px){.report-inner{padding:46px 48px 40px;}}
+
+  .rep-head{
+    display:flex;justify-content:space-between;align-items:flex-start;gap:14px;
+    border-bottom:2px solid var(--ink);padding-bottom:18px;margin-bottom:22px;
+  }
+  .rep-head h2{
+    font-family:'Amiri',serif;font-size:1.5rem;color:var(--ink);line-height:1.5;
+  }
+  .rep-ref{
+    font-family:'IBM Plex Mono',monospace;font-size:0.72rem;color:var(--text-muted);
+    text-align:left;white-space:nowrap;
+  }
+  [dir="rtl"] .rep-ref{text-align:left;}
+  .seal{
+    width:60px;height:60px;border-radius:50%;border:2px solid var(--rust);
+    display:flex;align-items:center;justify-content:center;flex-shrink:0;
+    transform:rotate(-8deg);opacity:0.85;
+  }
+  .seal span{
+    font-family:'Amiri',serif;font-weight:700;font-size:0.62rem;color:var(--rust);
+    text-align:center;line-height:1.2;
+  }
+
+  .sec{margin-bottom:26px;}
+  .sec-title{
+    display:flex;align-items:center;gap:10px;
+    font-family:'Amiri',serif;font-weight:700;font-size:1.12rem;color:var(--ink);
+    margin-bottom:10px;
+  }
+  .sec-num{
+    font-family:'IBM Plex Mono',monospace;font-size:0.72rem;color:#fff;background:var(--ink);
+    width:24px;height:24px;border-radius:50%;display:flex;align-items:center;justify-content:center;
+    flex-shrink:0;
+  }
+  .sec p{font-size:0.94rem;color:#2c2c2c;}
+  .sec .sub{font-size:0.86rem;color:var(--text-muted);margin-top:4px;}
+
+  .grid-2{display:grid;grid-template-columns:1fr 1fr;gap:16px;}
+  @media (max-width:560px){.grid-2{grid-template-columns:1fr;}}
+  .kv{background:var(--paper-2);border-radius:8px;padding:12px 14px;border:1px solid rgba(169,118,44,0.25);}
+  .kv .k{font-size:0.72rem;color:var(--gold);font-weight:600;letter-spacing:.3px;margin-bottom:4px;}
+  .kv .v{font-size:0.92rem;color:var(--text-dark);font-weight:600;}
+
+  .bar-row{margin-bottom:10px;}
+  .bar-label{display:flex;justify-content:space-between;font-size:0.85rem;margin-bottom:4px;color:#2c2c2c;}
+  .bar-track{height:9px;background:rgba(15,41,66,0.09);border-radius:5px;overflow:hidden;}
+  .bar-fill{height:100%;border-radius:5px;background:linear-gradient(90deg, var(--ink), var(--sage));}
+  .bar-fill.opex{background:linear-gradient(90deg, var(--rust), var(--gold-light));}
+
+  .risk-item{
+    display:flex;gap:12px;padding:12px 0;border-top:1px dashed rgba(169,118,44,0.3);
+  }
+  .risk-item:first-child{border-top:none;}
+  .risk-item .tag{
+    font-size:0.68rem;font-weight:700;color:#fff;background:var(--rust);
+    padding:3px 9px;border-radius:5px;height:fit-content;white-space:nowrap;
+  }
+  .risk-item .mit{font-size:0.72rem;color:var(--sage);font-weight:600;margin-top:4px;}
+
+  .timeline{position:relative;padding-inline-start:22px;}
+  .t-item{position:relative;padding-bottom:18px;}
+  .t-item:last-child{padding-bottom:0;}
+  .t-item::before{
+    content:"";position:absolute;inset-inline-start:-22px;top:4px;
+    width:9px;height:9px;border-radius:50%;background:var(--gold);
+  }
+  .t-item::after{
+    content:"";position:absolute;inset-inline-start:-18px;top:15px;bottom:-2px;width:1px;
+    background:rgba(169,118,44,0.35);
+  }
+  .t-item:last-child::after{display:none;}
+  .t-item .phase{font-weight:700;font-size:0.92rem;color:var(--ink);}
+  .t-item .dur{font-family:'IBM Plex Mono',monospace;font-size:0.7rem;color:var(--gold);margin-inline-start:8px;}
+  .t-item p{margin-top:3px;}
+
+  .rep-foot{
+    margin-top:30px;padding-top:16px;border-top:1px solid rgba(169,118,44,0.35);
+    display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:10px;
+  }
+  .disclaimer{font-size:0.72rem;color:var(--text-muted);max-width:60ch;}
+  .rep-actions{display:flex;gap:8px;}
+  .icon-btn{
+    background:var(--ink);color:#fff;border:none;padding:8px 14px;border-radius:7px;
+    font-size:0.78rem;cursor:pointer;font-family:inherit;
+  }
+  .icon-btn:hover{background:var(--ink-2);}
+
+  footer{text-align:center;color:var(--panel-muted);font-size:0.78rem;margin-top:40px;}
+
+  @media print{
+    body{background:#fff;padding:0;}
+    .masthead,.hero,.console,footer,.rep-actions{display:none !important;}
+    .report{box-shadow:none;}
+  }
+</style>
 </head>
 <body>
+<div class="wrapper">
 
-    <div class="wrapper">
-        <header>
-            <div class="lang-switch">
-                <button class="lang-btn" id="langToggleBtn" onclick="toggleLanguage()">English 🌐</button>
-            </div>
-            <div class="brand-badge" id="brandText">بيزنس ريفيو للاستشارات والتدريب</div>
-            <h1 id="mainTitle">منصة الاستشارات الاستراتيجية الذكية</h1>
-            <p class="desc" id="mainDesc">حول فكرتك إلى دراسة جدوى، أبحاث سوق، وخطة تنفيذية متكاملة بالذكاء الاصطناعي</p>
-        </header>
-
-        <div class="card">
-            <div class="form-group">
-                <label id="labelApiKey" for="apiKey">مفتاح الربط (Gemini API Key) - اختياري:</label>
-                <input type="password" id="apiKey" placeholder="أدخل مفتاح Gemini API أو اتركه فارغاً...">
-            </div>
-
-            <div class="form-group">
-                <label id="labelIdea" for="businessIdea">فكرة المشروع أو النشاط التجاري:</label>
-                <textarea id="businessIdea" placeholder="مثال: إنشاء مصنع تجفيف فواكه وخضروات وأعشاب طبية في بني سويف..."></textarea>
-            </div>
-
-            <button class="btn" id="submitBtn" onclick="generateConsultingReport()">إنشاء التقرير الاستراتيجي الشامل</button>
-
-            <div id="loadingIndicator" class="loading">
-                ⏳ <span id="loadingText">جاري تحليل السوق، حساب التكاليف، وإعداد الأقسام السبعة الاستراتيجية... برجاء الانتظار لحظات.</span>
-            </div>
-
-            <div id="reportOutput" class="output-box"></div>
-        </div>
-
-        <footer id="footerText">
-            جميع الحقوق محفوظة لصالح بيزنس ريفيو © 2026
-        </footer>
+  <div class="masthead">
+    <div class="mark">
+      <div class="mark-glyph">ب</div>
+      <div class="mark-text">
+        <div class="brand-line1" id="brandLine1">بيزنس ريفيو</div>
+        <div class="brand-line2" id="brandLine2">مركز دراسات الجدوى وأبحاث السوق</div>
+      </div>
     </div>
+    <button class="lang-btn" id="langToggleBtn" onclick="toggleLanguage()">English</button>
+  </div>
 
-    <script>
-        let currentLang = 'ar';
+  <div class="hero">
+    <div class="eyebrow" id="eyebrow">STRATEGIC FEASIBILITY DESK</div>
+    <h1 id="mainTitle">دراسة جدوى مؤسسية كاملة لفكرتك، خلال دقيقة</h1>
+    <p class="desc" id="mainDesc">اكتب فكرة مشروعك وسيصدر المركز دراسة جدوى متكاملة: تحليل سوق، دراسة فنية ومالية، نموذج عمل، وخطة تنفيذية — مبنية على فكرتك تحديدًا وليست نموذجًا ثابتًا.</p>
+  </div>
 
-        const translations = {
-            ar: {
-                title: "بيزنس ريفيو | مستشار الأعمال والذكاء الاصطناعي",
-                brand: "بيزنس ريفيو للاستشارات والتدريب",
-                mainTitle: "منصة الاستشارات الاستراتيجية الذكية",
-                mainDesc: "حول فكرتك إلى دراسة جدوى، أبحاث سوق، وخطة تنفيذية متكاملة بالذكاء الاصطناعي",
-                labelApiKey: "مفتاح الربط (Gemini API Key) - اختياري:",
-                placeholderApi: "أدخل مفتاح Gemini API أو اتركه فارغاً...",
-                labelIdea: "فكرة المشروع أو النشاط التجاري:",
-                placeholderIdea: "مثال: إنشاء مصنع تجفيف فواكه وخضروات وأعشاب طبية في بني سويف، يستهدف السوق المحلي والتصدير...",
-                submitBtn: "إنشاء التقرير الاستراتيجي الشامل",
-                loadingText: "جاري تحليل السوق، حساب التكاليف، وإعداد الأقسام السبعة الاستراتيجية... برجاء الانتظار لحظات.",
-                footer: "جميع الحقوق محفوظة لصالح بيزنس ريفيو © 2026",
-                langBtnText: "English 🌐",
-                alertMsg: "الرجاء كتابة فكرة المشروع أولاً!"
-            },
-            en: {
-                title: "Business Review | AI Business Consultant",
-                brand: "Business Review Consulting & Training",
-                mainTitle: "Smart Strategic Advisory Platform",
-                mainDesc: "Transform your business idea into a comprehensive feasibility study, market research, and execution roadmap using AI",
-                labelApiKey: "API Key (Gemini API Key) - Optional:",
-                placeholderApi: "Enter Gemini API key or leave blank...",
-                labelIdea: "Business Idea or Venture Concept:",
-                placeholderIdea: "Example: Establishing a fruit, vegetable, and medicinal herb drying facility in Beni Suef, targeting local and export markets...",
-                submitBtn: "Generate Comprehensive Strategic Report",
-                loadingText: "Analyzing market, calculating costs, and preparing the 7 strategic sections... Please wait.",
-                footer: "All Rights Reserved to Business Review © 2026",
-                langBtnText: "العربية 🌐",
-                alertMsg: "Please enter your business idea first!"
-            }
-        };
+  <div class="console">
+    <div class="field">
+      <label id="labelApiKey" for="apiKey">مفتاح Gemini API <span class="hint" id="hintApiKey">مطلوب — من aistudio.google.com/apikey</span></label>
+      <input type="text" id="apiKey" placeholder="AIzaSy...">
+    </div>
+    <div class="field">
+      <label id="labelIdea" for="businessIdea">فكرة المشروع أو النشاط الاستثماري</label>
+      <textarea id="businessIdea" placeholder="مثال: تجارة أعشاب طبية بالجملة تمهيدًا لإنشاء مصنع تجفيف وتعبئة..."></textarea>
+    </div>
+    <div class="row-2">
+      <div class="field">
+        <label id="labelLocation" for="location">الموقع الجغرافي <span class="hint" id="hintLocation">اختياري — يحسّن دقة الدراسة</span></label>
+        <input type="text" id="location" placeholder="مثال: القاهرة، مصر">
+      </div>
+      <div class="field">
+        <label id="labelBudget" for="budget">الميزانية التقريبية <span class="hint" id="hintBudget">اختياري</span></label>
+        <input type="text" id="budget" placeholder="مثال: 150,000 جنيه">
+      </div>
+    </div>
+    <button class="btn" id="submitBtn" onclick="generateConsultingReport()">إصدار دراسة الجدوى</button>
+    <div id="loadingIndicator" class="loading">
+      <div class="spinner"></div>
+      <span id="loadingText">جاري إعداد التحليل المالي وتحليل السوق والخطة التنفيذية...</span>
+    </div>
+    <div id="errorBox" class="error-box"></div>
+  </div>
 
-        function toggleLanguage() {
-            currentLang = currentLang === 'ar' ? 'en' : 'ar';
-            const root = document.getElementById('htmlRoot');
-            const t = translations[currentLang];
+  <div id="reportOutput" class="report">
+    <div class="report-inner" id="reportInner"></div>
+  </div>
 
-            root.setAttribute('lang', currentLang);
-            root.setAttribute('dir', currentLang === 'ar' ? 'rtl' : 'ltr');
+  <footer id="footerText">جميع الحقوق محفوظة لصالح بيزنس ريفيو للاستشارات والتدريب © 2026</footer>
+</div>
 
-            document.getElementById('pageTitle').innerText = t.title;
-            document.getElementById('brandText').innerText = t.brand;
-            document.getElementById('mainTitle').innerText = t.mainTitle;
-            document.getElementById('mainDesc').innerText = t.mainDesc;
-            document.getElementById('labelApiKey').innerText = t.labelApiKey;
-            document.getElementById('apiKey').placeholder = t.placeholderApi;
-            document.getElementById('labelIdea').innerText = t.labelIdea;
-            document.getElementById('businessIdea').placeholder = t.placeholderIdea;
-            document.getElementById('submitBtn').innerText = t.submitBtn;
-            document.getElementById('loadingText').innerText = t.loadingText;
-            document.getElementById('footerText').innerText = t.footer;
-            document.getElementById('langToggleBtn').innerText = t.langBtnText;
-        }
+<script>
+let currentLang = 'ar';
 
-        function generateConsultingReport() {
-            const idea = document.getElementById('businessIdea').value.trim();
-            const outputBox = document.getElementById('reportOutput');
-            const loading = document.getElementById('loadingIndicator');
-            const t = translations[currentLang];
+const translations = {
+  ar: {
+    title:"بيزنس ريفيو | مركز دراسات الجدوى وأبحاث السوق",
+    brand1:"بيزنس ريفيو", brand2:"مركز دراسات الجدوى وأبحاث السوق",
+    eyebrow:"مكتب دراسات الجدوى الاستراتيجية",
+    mainTitle:"دراسة جدوى مؤسسية كاملة لفكرتك، خلال دقيقة",
+    mainDesc:"اكتب فكرة مشروعك وسيصدر المركز دراسة جدوى متكاملة: تحليل سوق، دراسة فنية ومالية، نموذج عمل، وخطة تنفيذية — مبنية على فكرتك تحديدًا وليست نموذجًا ثابتًا.",
+    labelApiKey:"مفتاح Gemini API", hintApiKey:"مطلوب — من aistudio.google.com/apikey",
+    labelIdea:"فكرة المشروع أو النشاط الاستثماري",
+    placeholderIdea:"مثال: تجارة أعشاب طبية بالجملة تمهيدًا لإنشاء مصنع تجفيف وتعبئة...",
+    labelLocation:"الموقع الجغرافي", hintLocation:"اختياري — يحسّن دقة الدراسة", placeholderLocation:"مثال: القاهرة، مصر",
+    labelBudget:"الميزانية التقريبية", hintBudget:"اختياري", placeholderBudget:"مثال: 150,000 جنيه",
+    submitBtn:"إصدار دراسة الجدوى", loadingText:"جاري إعداد التحليل المالي وتحليل السوق والخطة التنفيذية...",
+    footer:"جميع الحقوق محفوظة لصالح بيزنس ريفيو للاستشارات والتدريب © 2026",
+    langBtnText:"English",
+    alertMsg:"الرجاء كتابة تفاصيل فكرة المشروع أولاً.",
+    errMsg:"تعذّر إصدار الدراسة الآن. تأكد من صحة مفتاح Gemini API وحاول مرة أخرى.",
+    needsKeyMsg:"الرجاء إدخال مفتاح Gemini API في الحقل أعلاه أولاً.",
+    secTitles:["الملخص التنفيذي","دراسة السوق والمنافسين","الدراسة الفنية والتشغيلية","الدراسة المالية","نموذج العمل والتسويق","الإطار القانوني","إدارة المخاطر","الخطة الزمنية التنفيذية"],
+    capexLabel:"هيكل التكاليف الاستثمارية (CAPEX)", opexLabel:"هيكل التكاليف التشغيلية (OPEX)",
+    marginLabel:"هامش الربح المتوقع", breakevenLabel:"نقطة التعادل", paybackLabel:"فترة استرداد رأس المال",
+    printBtn:"طباعة / حفظ PDF", copyBtn:"نسخ النص",
+    copiedMsg:"تم نسخ الدراسة",
+    disclaimer:"هذه الدراسة تقديرية وتعتمد على المعطيات المُدخلة فقط، وتُستخدم كنقطة انطلاق للتخطيط. يُنصح بمراجعتها مع مستشار مالي أو قانوني مرخّص قبل اتخاذ قرار الاستثمار.",
+    seal:"معتمد", generating:"جاري التحليل"
+  },
+  en: {
+    title:"Business Review | Feasibility & Market Research Center",
+    brand1:"Business Review", brand2:"Feasibility & Market Research Center",
+    eyebrow:"STRATEGIC FEASIBILITY DESK",
+    mainTitle:"A full institutional feasibility study for your idea, in minutes",
+    mainDesc:"Describe your venture and the desk will issue a complete feasibility study: market analysis, technical and financial study, business model, and an execution roadmap — built specifically around your idea.",
+    labelApiKey:"Gemini API Key", hintApiKey:"Required — from aistudio.google.com/apikey",
+    labelIdea:"Business Venture or Investment Concept",
+    placeholderIdea:"e.g. Wholesale trade of medicinal herbs, ahead of building a drying & packing plant...",
+    labelLocation:"Location", hintLocation:"Optional — improves accuracy", placeholderLocation:"e.g. Cairo, Egypt",
+    labelBudget:"Approximate Budget", hintBudget:"Optional", placeholderBudget:"e.g. $30,000",
+    submitBtn:"Generate Feasibility Study", loadingText:"Synthesizing financial analysis, market study, and execution roadmap...",
+    footer:"All Rights Reserved to Business Review Consulting & Training © 2026",
+    langBtnText:"العربية",
+    alertMsg:"Please describe your business idea first.",
+    errMsg:"Couldn't generate the study. Check that your Gemini API key is correct and try again.",
+    needsKeyMsg:"Please enter your Gemini API key in the field above first.",
+    secTitles:["Executive Summary","Market & Competitor Study","Technical & Operational Study","Financial Study","Business Model & Marketing","Legal Framework","Risk Management","Execution Timeline"],
+    capexLabel:"Capital Expenditure Structure (CAPEX)", opexLabel:"Operating Expenditure Structure (OPEX)",
+    marginLabel:"Projected Profit Margin", breakevenLabel:"Break-even Point", paybackLabel:"Payback Period",
+    printBtn:"Print / Save PDF", copyBtn:"Copy Text",
+    copiedMsg:"Study copied",
+    disclaimer:"This study is indicative and based solely on the inputs provided; use it as a planning starting point. Review it with a licensed financial or legal advisor before making an investment decision.",
+    seal:"Certified", generating:"Analyzing"
+  }
+};
 
-            if (!idea) {
-                alert(t.alertMsg);
-                return;
-            }
+function applyStaticText(){
+  const t = translations[currentLang];
+  document.getElementById('pageTitle').innerText = t.title;
+  document.getElementById('brandLine1').innerText = t.brand1;
+  document.getElementById('brandLine2').innerText = t.brand2;
+  document.getElementById('eyebrow').innerText = t.eyebrow;
+  document.getElementById('mainTitle').innerText = t.mainTitle;
+  document.getElementById('mainDesc').innerText = t.mainDesc;
+  document.getElementById('labelApiKey').childNodes[0].nodeValue = t.labelApiKey + " ";
+  document.getElementById('hintApiKey').innerText = t.hintApiKey;
+  document.getElementById('labelIdea').childNodes[0].nodeValue = t.labelIdea + " ";
+  document.getElementById('businessIdea').placeholder = t.placeholderIdea;
+  document.getElementById('labelLocation').childNodes[0].nodeValue = t.labelLocation + " ";
+  document.getElementById('hintLocation').innerText = t.hintLocation;
+  document.getElementById('location').placeholder = t.placeholderLocation;
+  document.getElementById('labelBudget').childNodes[0].nodeValue = t.labelBudget + " ";
+  document.getElementById('hintBudget').innerText = t.hintBudget;
+  document.getElementById('budget').placeholder = t.placeholderBudget;
+  document.getElementById('submitBtn').innerText = t.submitBtn;
+  document.getElementById('loadingText').innerText = t.loadingText;
+  document.getElementById('footerText').innerText = t.footer;
+  document.getElementById('langToggleBtn').innerText = t.langBtnText;
+}
 
-            outputBox.style.display = 'none';
-            loading.style.display = 'block';
+function toggleLanguage(){
+  currentLang = currentLang === 'ar' ? 'en' : 'ar';
+  const root = document.getElementById('htmlRoot');
+  root.setAttribute('lang', currentLang);
+  root.setAttribute('dir', currentLang === 'ar' ? 'rtl' : 'ltr');
+  applyStaticText();
+}
 
-            // محرك استشاري ذكي ومخصص يضمن عدم حدوث أي أخطاء خادم نهائياً
-            setTimeout(() => {
-                loading.style.display = 'none';
-                outputBox.style.display = 'block';
-                
-                if (currentLang === 'ar') {
-                    outputBox.innerText = `==================================================\n` +
-                        `📋 التقرير الاستراتيجي الشامل ودراسة الجدوى المتقدمة\n` +
-                        `==================================================\n` +
-                        `📌 فكرة المشروع: "${idea}"\n\n` +
-                        `1. دراسة الجدوى الشاملة:\n` +
-                        `- تقييم الجدوى الاقتصادية، تقدير حجم التكاليف الرأسمالية والتشغيلية، وفترة استرداد رأس المال المستهدفة.\n` +
-                        `- حساب هامش الربح المتوقع وتحليل نقطة التعادل بناءً على الأسعار السائدة في السوق.\n\n` +
-                        `2. أبحاث السوق وتحليل المنافسين:\n` +
-                        `- تحديد شرائح العملاء المستهدفين واحتياجاتهم الفعلية بدقة.\n` +
-                        `- دراسة المنافسين الحاليين في السوق المحلي والإقليمي وتحليل نقاط القوة والضعف (SWOT).\n` +
-                        `- رصد الفجوات السوقية والفرص الاستثمارية الواعدة.\n\n` +
-                        `3. نموذج العمل التجاري (Business Model Canvas):\n` +
-                        `- قنوات التوزيع وشرائح العملاء الأساسية.\n` +
-                        `- مصادر الدخل المقترحة وهياكل التكاليف الرئيسية.\n` +
-                        `- الأنشطة والواردات والموارد الاستراتيجية اللازمة للتشغيل.\n\n` +
-                        `4. استراتيجية التسويق والوصول للسوق (GTM Strategy):\n` +
-                        `- خطة التسويق الرقمي وإدارة الحملات الإعلانية المستهدفة.\n` +
-                        `- استراتيجيات التسعير التنافسي وبرامج بناء ولاء العملاء.\n` +
-                        `- قنوات المبيعات المباشرة وB2B.\n\n` +
-                        `5. الإطار التشغيلي والقانوني:\n` +
-                        `- التراخيص الرسمية والاشتراطات القانونية المطلوبة (السجل التجاري، البطاقة الضريبية، وهيئة الاستثمار).\n` +
-                        `- الهيكل التنظيمي والإداري وكفاءة الموارد البشرية.\n` +
-                        `- معايير وضوابط الجودة والتشغيل الآمن.\n\n` +
-                        `6. إدارة المخاطر:\n` +
-                        `- تحديد المخاطر التشغيلية والمالية المحتملة.\n` +
-                        `- وضع خطط الطوارئ البديلة للتعامل مع تقلبات السوق والتحديات المحتملة.\n\n` +
-                        `7. الخطة التنفيذية ومراحل التنفيذ (Execution Roadmap):\n` +
-                        `- المرحلة الأولى (التأسيس والتجهيز): الشهور 1 - 3.\n` +
-                        `- المرحلة الثانية (الإطلاق التجريبي وبناء الهوية): الشهور 4 - 5.\n` +
-                        `- المرحلة الثالثة (التوسع والتشغيل الكامل): الشهر السادس فصاعداً.\n\n` +
-                        `--------------------------------------------------\n` +
-                        `💡 تم إصدار هذا التقرير الاحترافي بواسطة خوارزميات 'بيزنس ريفيو' للاستشارات والتدريب.`;
-                } else {
-                    outputBox.innerText = `==================================================\n` +
-                        `📋 Comprehensive Strategic Report & Feasibility Study\n` +
-                        `==================================================\n` +
-                        `📌 Project Concept: "${idea}"\n\n` +
-                        `1. Comprehensive Feasibility Study:\n` +
-                        `- Economic viability assessment, capital & operational cost estimation, and target payback period.\n` +
-                        `- Profit margin projections and break-even analysis.\n\n` +
-                        `2. Market Research & Competitor Analysis:\n` +
-                        `- Target customer segmentation and consumer behavior evaluation.\n` +
-                        `- Local and regional competitor benchmarking & SWOT analysis.\n` +
-                        `- Identification of market gaps and growth opportunities.\n\n` +
-                        `3. Business Model Canvas:\n` +
-                        `- Distribution channels and key customer segments.\n` +
-                        `- Revenue streams and primary cost structures.\n` +
-                        `- Strategic resources and core activities.\n\n` +
-                        `4. GTM & Marketing Strategy:\n` +
-                        `- Digital marketing plan and targeted campaign frameworks.\n` +
-                        `- Competitive pricing strategies and customer retention.\n` +
-                        `- Direct sales and B2B channels.\n\n` +
-                        `5. Operational & Legal Framework:\n` +
-                        `- Required regulatory licenses, commercial registration, and legal structuring.\n` +
-                        `- Organizational structure and human resource management.\n` +
-                        `- Operational quality and compliance standards.\n\n` +
-                        `6. Risk Management:\n` +
-                        `- Operational, financial, and market risk assessment.\n` +
-                        `- Contingency planning and mitigation strategies.\n\n` +
-                        `7. Execution Roadmap:\n` +
-                        `- Phase 1 (Foundation & Setup): Months 1-3.\n` +
-                        `- Phase 2 (Soft Launch & Branding): Months 4-5.\n` +
-                        `- Phase 3 (Full Operations & Scaling): Month 6 and beyond.\n\n` +
-                        `--------------------------------------------------\n` +
-                        `💡 Generated by Business Review Consulting & Training.`;
-                }
-            }, 900);
-        }
-    </script>
-</body>
-</html>
+function el(tag, cls, text){
+  const e = document.createElement(tag);
+  if(cls) e.className = cls;
+  if(text !== undefined) e.innerText = text;
+  return e;
+}
+
+function refNumber(){
+  const now = new Date();
+  const y = now.getFullYear();
+  const rand = Math.floor(1000 + Math.random()*9000);
+  return `BR-${y}-${rand}`;
+}
+
+async function callModel(idea, location, budget, apiKey){
+  const t = translations[currentLang];
+  const langInstruction = currentLang === 'ar'
+    ? "اكتب كل المحتوى باللغة العربية الفصحى المهنية."
+    : "Write all content in professional English.";
+
+  const schemaNote = `
+أنت مستشار خبير بمعايير مكاتب استشارات عالمية (مثل McKinsey وDeloitte). مطلوب منك تحليل عميق ومحدد وواقعي، وليس عبارات عامة صالحة لأي مشروع. استخدم أرقامًا وتقديرات كمية فعلية (نسب مئوية، مبالغ تقريبية، مدد زمنية محددة) مبنية على معرفتك بمعايير الصناعة الفعلية للنشاط والموقع المذكورين. تجنّب تمامًا الجمل الإنشائية الفضفاضة مثل "بناء ميزة تنافسية مستدامة" أو "تلبية احتياجات السوق" بدون تفاصيل ملموسة تسندها.
+
+أعد إجابتك بصيغة JSON خام فقط (بدون أي نص قبله أو بعده وبدون أسوار ماركداون)، مطابقة تمامًا لهذا المخطط:
+{
+ "activity_name": "اسم مختصر ودقيق للنشاط (أقل من 8 كلمات)",
+ "summary": "ملخص تنفيذي حقيقي: ما المنتج/الخدمة بالتحديد، لمن، وما الفرصة الفعلية في السوق المذكور (3-4 جمل غنية بالتفاصيل)",
+ "market_demand": "تحليل طلب محدد: حجم السوق التقريبي أو معدل نموه إن أمكن تقديره، ومن أين يأتي الطلب فعليًا (2-3 جمل)",
+ "target_segments": "شرائح محددة بأوصافها (مثال: صيدليات، محلات عطارة، مطاعم صحية) وليس وصفًا عامًا",
+ "competitive_edge": "ميزة تنافسية ملموسة ومحددة، مبنية على طبيعة النشاط تحديدًا (ليست عبارة عامة)",
+ "location_setup": "تفاصيل فعلية عن نوع المكان المطلوب، مساحته التقريبية، وأهم معايير اختيار الموقع ل
