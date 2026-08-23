@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+                                    <!DOCTYPE html>
 <html lang="ar" dir="rtl" id="htmlRoot">
 <head>
     <meta charset="UTF-8">
@@ -51,7 +51,7 @@
         <div class="card">
             <div class="form-group">
                 <label id="labelApiKey" for="apiKey">مفتاح الربط (Gemini API Key) - اختياري:</label>
-                <input type="password" id="apiKey" placeholder="أدخل مفتاح Gemini API هنا (اتركه فارغاً لاستخدام الوضع التجريبي)">
+                <input type="password" id="apiKey" placeholder="أدخل مفتاح Gemini API هنا...">
             </div>
 
             <div class="form-group">
@@ -83,7 +83,7 @@
                 mainTitle: "منصة الاستشارات الاستراتيجية الذكية",
                 mainDesc: "حول فكرتك إلى دراسة جدوى، أبحاث سوق، وخطة تنفيذية متكاملة بالذكاء الاصطناعي",
                 labelApiKey: "مفتاح الربط (Gemini API Key) - اختياري:",
-                placeholderApi: "أدخل مفتاح Gemini API هنا (اتركه فارغاً لاستخدام الوضع التجريبي)",
+                placeholderApi: "أدخل مفتاح Gemini API هنا...",
                 labelIdea: "فكرة المشروع أو النشاط التجاري:",
                 placeholderIdea: "مثال: إنشاء مصنع تجفيف فواكه وخضروات وأعشاب طبية في بني سويف، يستهدف السوق المحلي والتصدير...",
                 submitBtn: "إنشاء التقرير الاستراتيجي الشامل",
@@ -98,7 +98,7 @@
                 mainTitle: "Smart Strategic Advisory Platform",
                 mainDesc: "Transform your business idea into a comprehensive feasibility study, market research, and execution roadmap using AI",
                 labelApiKey: "API Key (Gemini API Key) - Optional:",
-                placeholderApi: "Enter Gemini API key here (leave blank for demo mode)",
+                placeholderApi: "Enter Gemini API key here...",
                 labelIdea: "Business Idea or Venture Concept:",
                 placeholderIdea: "Example: Establishing a fruit, vegetable, and medicinal herb drying facility in Beni Suef, targeting local and export markets...",
                 submitBtn: "Generate Comprehensive Strategic Report",
@@ -151,7 +151,8 @@
                     const langPrompt = currentLang === 'ar' ? 'باللغة العربية' : 'in English';
                     const systemPrompt = `You are 'VentureAI Master' – a top strategic business consultant and feasibility study expert. Generate a comprehensive professional report ${langPrompt} clearly structured into 7 sections: 1. Comprehensive Feasibility Study, 2. Market Research & Competitor Analysis, 3. Business Model, 4. GTM & Marketing Strategy, 5. Operational & Legal Framework, 6. Risk Management, 7. Execution Roadmap.`;
                     
-                    const url = `https://generativelanguage.googleapis.com/v1beta/models/gemini-2.5-flash:generateContent?key=${apiKey}`;
+                    // استخدام نموذج gemini-1.5-flash المتوافق بسلاسة مع مفاتيح الـ API الجديدة
+                    const url = `https://generativelanguage.googleapis.com/v1beta/models/gemini-1.5-flash:generateContent?key=${apiKey}`;
 
                     const response = await fetch(url, {
                         method: "POST",
@@ -169,8 +170,10 @@
 
                     if (data.candidates && data.candidates[0].content.parts[0].text) {
                         outputBox.innerText = data.candidates[0].content.parts[0].text;
+                    } else if (data.error) {
+                        outputBox.innerText = (currentLang === 'ar' ? 'خطأ من الخادم: ' : 'Server Error: ') + data.error.message;
                     } else {
-                        outputBox.innerText = currentLang === 'ar' ? 'حدث خطأ في الاتصال بالخدمة، يرجى التأكد من مفتاح الـ Gemini API.' : 'Error connecting to service, please check your Gemini API key.';
+                        outputBox.innerText = currentLang === 'ar' ? 'حدث خطأ في استجابة الخدمة، تأكد من صحة المفتاح.' : 'Error in service response, please check the key.';
                     }
                 } catch (error) {
                     loading.style.display = 'none';
@@ -189,5 +192,4 @@
         }
     </script>
 </body>
-            </html>
-            
+</html>
