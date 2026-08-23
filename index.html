@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>VentureAI Master - مستشار الأعمال الذكي</title>
+    <style>
+        :root {
+            --primary: #6366f1;
+            --primary-dark: #4f46e5;
+            --bg-color: #0f172a;
+            --card-bg: #1e293b;
+            --text-color: #f8fafc;
+            --text-muted: #94a3b8;
+        }
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+            font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+        }
+        body {
+            background-color: var(--bg-color);
+            color: var(--text-color);
+            line-height: 1.6;
+            padding: 20px;
+        }
+        .container {
+            max-width: 800px;
+            margin: 40px auto;
+            background: var(--card-bg);
+            padding: 30px;
+            border-radius: 16px;
+            box-shadow: 0 10px 25px rgba(0,0,0,0.3);
+        }
+        h1 {
+            font-size: 2rem;
+            margin-bottom: 10px;
+            color: #fff;
+            text-align: center;
+        }
+        p.subtitle {
+            text-align: center;
+            color: var(--text-muted);
+            margin-bottom: 30px;
+            font-size: 1.1rem;
+        }
+        .form-group {
+            margin-bottom: 20px;
+        }
+        label {
+            display: block;
+            margin-bottom: 8px;
+            font-weight: 600;
+        }
+        textarea {
+            width: 100%;
+            height: 120px;
+            padding: 12px;
+            border-radius: 8px;
+            border: 1px solid #334155;
+            background: #0f172a;
+            color: #fff;
+            font-size: 1rem;
+            resize: vertical;
+        }
+        textarea:focus {
+            outline: none;
+            border-color: var(--primary);
+        }
+        button {
+            background: var(--primary);
+            color: white;
+            border: none;
+            padding: 12px 24px;
+            font-size: 1rem;
+            font-weight: bold;
+            border-radius: 8px;
+            cursor: pointer;
+            width: 100%;
+            transition: background 0.3s;
+        }
+        button:hover {
+            background: var(--primary-dark);
+        }
+        .output-section {
+            margin-top: 30px;
+            background: #0f172a;
+            padding: 20px;
+            border-radius: 8px;
+            border: 1px solid #334155;
+            display: none;
+            white-space: pre-wrap;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <h1>VentureAI Master</h1>
+        <p class="subtitle">حول فكرتك التجارية إلى دراسة جدوى وخطط عمل متكاملة بالذكاء الاصطناعي</p>
+        
+        <div class="form-group">
+            <label for="ideaInput">اكتب فكرة مشروعك هنا باختصار:</label>
+            <textarea id="ideaInput" placeholder="مثلاً: تطبيق لتوصيل أعشاب طبيعية، أو خدمة صيانة منزلية..."></textarea>
+        </div>
+        
+        <button id="generateBtn" onclick="generateReport()">إنشاء التقرير الاستراتيجي</button>
+
+        <div id="outputArea" class="output-section"></div>
+    </div>
+
+    <script>
+        function generateReport() {
+            const idea = document.getElementById('ideaInput').value.trim();
+            const outputArea = document.getElementById('outputArea');
+            
+            if(!idea) {
+                alert('الرجاء كتابة فكرة المشروع أولاً!');
+                return;
+            }
+
+            outputArea.style.display = 'block';
+            outputArea.innerHTML = 'جاري تحليل الفكرة وإعداد دراسة الجدوى والأقسام الـ 7 بالتعاون مع النظام الذكي... يرجى الانتظار لحظات.';
+            
+            // محاكاة استجابة النظام الفورية للتجربة الأولية
+            setTimeout(() => {
+                outputArea.innerHTML = `✅ تم تحليل الفكرة بنجاح بناءً على مشروع: "${idea}"\n\n` +
+                `1. دراسة الجدوى الشاملة: تم حساب التكاليف المبدئية ونقطة التعادل.\n` +
+                `2. أبحاث السوق وتحليل المنافسين: تم تحديد شرائح الجمهور المستهدف والفجوات.\n` +
+                `3. نموذج العمل التجاري: هيكل الإيرادات وقنوات التوزيع.\n` +
+                `4. الهوية التسويقية وخطة الدخول للسوق (GTM).\n` +
+                `5. إطار التشغيل والشئون القانونية والتراخيص.\n` +
+                `6. إدارة المخاطر وخطط التخفيف الاحترازية.\n` +
+                `7. خطة التنفيذ المرحلية (من اليوم الأول حتى التوسع).\n\n` +
+                `💡 (ملاحظة: لربط هذا الموقع بـ API الفعلي الخاص بـ Claude لإنتاج تقارير مخصصة وطويلة، سنقوم بتفعيل السيرفر الخلفي في الخطوة القادمة).`;
+            }, 2000);
+        }
+    </script>
+</body>
+</html>
