@@ -1,4 +1,4 @@
-            <!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="ar" dir="rtl" id="htmlRoot">
 <head>
     <meta charset="UTF-8">
@@ -14,147 +14,26 @@
             --text-main: #f9fafb;
             --text-muted: #9ca3af;
         }
-        * {
-            box-sizing: border-box;
-            margin: 0;
-            padding: 0;
-            font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
-        }
-        body {
-            background-color: var(--bg-color);
-            color: var(--text-main);
-            line-height: 1.7;
-            padding: 20px;
-        }
-        .wrapper {
-            max-width: 900px;
-            margin: 30px auto;
-        }
-        header {
-            text-align: center;
-            margin-bottom: 40px;
-            position: relative;
-        }
-        .lang-switch {
-            position: absolute;
-            top: 0;
-            left: 0;
-        }
-        [dir="ltr"] .lang-switch {
-            left: auto;
-            right: 0;
-        }
-        .lang-btn {
-            background: #1f2937;
-            color: #fff;
-            border: 1px solid #374151;
-            padding: 6px 12px;
-            border-radius: 8px;
-            cursor: pointer;
-            font-size: 0.85rem;
-            transition: background 0.2s;
-        }
-        .lang-btn:hover {
-            background: #374151;
-        }
-        .brand-badge {
-            display: inline-block;
-            background: rgba(79, 70, 229, 0.15);
-            color: #818cf8;
-            padding: 6px 16px;
-            border-radius: 20px;
-            font-size: 0.9rem;
-            font-weight: 600;
-            margin-bottom: 15px;
-            border: 1px solid rgba(79, 70, 229, 0.3);
-        }
-        h1 {
-            font-size: 2.2rem;
-            margin-bottom: 10px;
-            color: #fff;
-        }
-        p.desc {
-            color: var(--text-muted);
-            font-size: 1.1rem;
-        }
-        .card {
-            background: var(--card-bg);
-            border: 1px solid var(--border-color);
-            border-radius: 16px;
-            padding: 30px;
-            box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.3);
-            margin-bottom: 25px;
-        }
-        .form-group {
-            margin-bottom: 20px;
-        }
-        label {
-            display: block;
-            margin-bottom: 8px;
-            font-weight: 600;
-            color: #e5e7eb;
-            text-align: start;
-        }
-        input[type="password"], textarea {
-            width: 100%;
-            padding: 14px;
-            border-radius: 10px;
-            border: 1px solid var(--border-color);
-            background: #030712;
-            color: #fff;
-            font-size: 1rem;
-            text-align: start;
-        }
-        textarea {
-            height: 140px;
-            resize: vertical;
-        }
-        input:focus, textarea:focus {
-            outline: none;
-            border-color: var(--primary);
-            box-shadow: 0 0 0 3px rgba(79, 70, 229, 0.2);
-        }
-        .btn {
-            background: var(--primary);
-            color: white;
-            border: none;
-            padding: 14px 28px;
-            font-size: 1.05rem;
-            font-weight: bold;
-            border-radius: 10px;
-            cursor: pointer;
-            width: 100%;
-            transition: all 0.3s ease;
-        }
-        .btn:hover {
-            background: var(--primary-hover);
-        }
-        .output-box {
-            background: #030712;
-            border: 1px solid var(--border-color);
-            border-radius: 12px;
-            padding: 25px;
-            margin-top: 30px;
-            display: none;
-            white-space: pre-wrap;
-            font-size: 1rem;
-            color: #e5e7eb;
-            line-height: 1.8;
-            text-align: start;
-        }
-        .loading {
-            text-align: center;
-            color: #818cf8;
-            font-weight: 600;
-            padding: 20px;
-            display: none;
-        }
-        footer {
-            text-align: center;
-            color: var(--text-muted);
-            font-size: 0.9rem;
-            margin-top: 40px;
-        }
+        * { box-sizing: border-box; margin: 0; padding: 0; font-family: system-ui, sans-serif; }
+        body { background-color: var(--bg-color); color: var(--text-main); line-height: 1.7; padding: 20px; }
+        .wrapper { max-width: 900px; margin: 30px auto; }
+        header { text-align: center; margin-bottom: 40px; position: relative; }
+        .lang-switch { position: absolute; top: 0; left: 0; }
+        [dir="ltr"] .lang-switch { left: auto; right: 0; }
+        .lang-btn { background: #1f2937; color: #fff; border: 1px solid #374151; padding: 6px 12px; border-radius: 8px; cursor: pointer; font-size: 0.85rem; }
+        .brand-badge { display: inline-block; background: rgba(79, 70, 229, 0.15); color: #818cf8; padding: 6px 16px; border-radius: 20px; font-size: 0.9rem; font-weight: 600; margin-bottom: 15px; border: 1px solid rgba(79, 70, 229, 0.3); }
+        h1 { font-size: 2.2rem; margin-bottom: 10px; color: #fff; }
+        p.desc { color: var(--text-muted); font-size: 1.1rem; }
+        .card { background: var(--card-bg); border: 1px solid var(--border-color); border-radius: 16px; padding: 30px; box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.3); margin-bottom: 25px; }
+        .form-group { margin-bottom: 20px; }
+        label { display: block; margin-bottom: 8px; font-weight: 600; color: #e5e7eb; text-align: start; }
+        input[type="password"], textarea { width: 100%; padding: 14px; border-radius: 10px; border: 1px solid var(--border-color); background: #030712; color: #fff; font-size: 1rem; text-align: start; }
+        textarea { height: 140px; resize: vertical; }
+        .btn { background: var(--primary); color: white; border: none; padding: 14px 28px; font-size: 1.05rem; font-weight: bold; border-radius: 10px; cursor: pointer; width: 100%; transition: all 0.3s ease; }
+        .btn:hover { background: var(--primary-hover); }
+        .output-box { background: #030712; border: 1px solid var(--border-color); border-radius: 12px; padding: 25px; margin-top: 30px; display: none; white-space: pre-wrap; font-size: 1rem; color: #e5e7eb; line-height: 1.8; text-align: start; }
+        .loading { text-align: center; color: #818cf8; font-weight: 600; padding: 20px; display: none; }
+        footer { text-align: center; color: var(--text-muted); font-size: 0.9rem; margin-top: 40px; }
     </style>
 </head>
 <body>
@@ -171,8 +50,8 @@
 
         <div class="card">
             <div class="form-group">
-                <label id="labelApiKey" for="apiKey">مفتاح الربط (Claude API Key) - اختياري:</label>
-                <input type="password" id="apiKey" placeholder="أدخل مفتاح الـ API هنا (اتركه فارغاً لاستخدام الوضع التجريبي)">
+                <label id="labelApiKey" for="apiKey">مفتاح الربط (Gemini API Key) - اختياري:</label>
+                <input type="password" id="apiKey" placeholder="أدخل مفتاح Gemini API هنا (اتركه فارغاً لاستخدام الوضع التجريبي)">
             </div>
 
             <div class="form-group">
@@ -203,32 +82,30 @@
                 brand: "بيزنس ريفيو للاستشارات والتدريب",
                 mainTitle: "منصة الاستشارات الاستراتيجية الذكية",
                 mainDesc: "حول فكرتك إلى دراسة جدوى، أبحاث سوق، وخطة تنفيذية متكاملة بالذكاء الاصطناعي",
-                labelApiKey: "مفتاح الربط (Claude API Key) - اختياري:",
-                placeholderApi: "أدخل مفتاح الـ API هنا (اتركه فارغاً لاستخدام الوضع التجريبي)",
+                labelApiKey: "مفتاح الربط (Gemini API Key) - اختياري:",
+                placeholderApi: "أدخل مفتاح Gemini API هنا (اتركه فارغاً لاستخدام الوضع التجريبي)",
                 labelIdea: "فكرة المشروع أو النشاط التجاري:",
                 placeholderIdea: "مثال: إنشاء مصنع تجفيف فواكه وخضروات وأعشاب طبية في بني سويف، يستهدف السوق المحلي والتصدير...",
                 submitBtn: "إنشاء التقرير الاستراتيجي الشامل",
                 loadingText: "جاري تحليل السوق، حساب التكاليف، وإعداد الأقسام السبعة الاستراتيجية... برجاء الانتظار لحظات.",
                 footer: "جميع الحقوق محفوظة لصالح بيزنس ريفيو © 2026",
                 langBtnText: "English 🌐",
-                alertMsg: "الرجاء كتابة فكرة المشروع أولاً!",
-                demoNotice: "ملاحظة تفعيل الـ API: لإصدار تقارير مخصصة حية بالكامل عبر نموذج Claude، يمكنك إدخال مفتاح الـ API الخاص بك في الخانة بالأعلى وسيقوم بالنظام بتوليد التقرير لحظياً."
+                alertMsg: "الرجاء كتابة فكرة المشروع أولاً!"
             },
             en: {
                 title: "Business Review | AI Business Consultant",
                 brand: "Business Review Consulting & Training",
                 mainTitle: "Smart Strategic Advisory Platform",
                 mainDesc: "Transform your business idea into a comprehensive feasibility study, market research, and execution roadmap using AI",
-                labelApiKey: "API Key (Claude API Key) - Optional:",
-                placeholderApi: "Enter API key here (leave blank for demo mode)",
+                labelApiKey: "API Key (Gemini API Key) - Optional:",
+                placeholderApi: "Enter Gemini API key here (leave blank for demo mode)",
                 labelIdea: "Business Idea or Venture Concept:",
                 placeholderIdea: "Example: Establishing a fruit, vegetable, and medicinal herb drying facility in Beni Suef, targeting local and export markets...",
                 submitBtn: "Generate Comprehensive Strategic Report",
                 loadingText: "Analyzing market, calculating costs, and preparing the 7 strategic sections... Please wait.",
                 footer: "All Rights Reserved to Business Review © 2026",
                 langBtnText: "العربية 🌐",
-                alertMsg: "Please enter your business idea first!",
-                demoNotice: "API Activation Note: To generate fully live custom reports via Claude, enter your API key above."
+                alertMsg: "Please enter your business idea first!"
             }
         };
 
@@ -272,19 +149,17 @@
             if (apiKey) {
                 try {
                     const langPrompt = currentLang === 'ar' ? 'باللغة العربية' : 'in English';
-                    const response = await fetch("https://api.anthropic.com/v1/messages", {
+                    const systemPrompt = `You are 'VentureAI Master' – a top strategic business consultant and feasibility study expert. Generate a comprehensive professional report ${langPrompt} clearly structured into 7 sections: 1. Comprehensive Feasibility Study, 2. Market Research & Competitor Analysis, 3. Business Model, 4. GTM & Marketing Strategy, 5. Operational & Legal Framework, 6. Risk Management, 7. Execution Roadmap.`;
+                    
+                    const url = `https://generativelanguage.googleapis.com/v1beta/models/gemini-2.5-flash:generateContent?key=${apiKey}`;
+
+                    const response = await fetch(url, {
                         method: "POST",
-                        headers: {
-                            "Content-Type": "application/json",
-                            "x-api-key": apiKey,
-                            "anthropic-version": "2023-06-01",
-                            "anthropic-dangerous-direct-browser-access": "true"
-                        },
+                        headers: { "Content-Type": "application/json" },
                         body: JSON.stringify({
-                            model: "claude-3-5-sonnet-20241022",
-                            max_tokens: 4000,
-                            system: `You are 'VentureAI Master' – a strategic business consultant and feasibility study expert. Generate a comprehensive professional report ${langPrompt} clearly structured into 7 sections: 1. Comprehensive Feasibility Study, 2. Market Research & Competitor Analysis, 3. Business Model, 4. GTM & Marketing Strategy, 5. Operational & Legal Framework, 6. Risk Management, 7. Execution Roadmap.`,
-                            messages: [{ role: "user", content: `Generate the strategic report for: ${idea}` }]
+                            contents: [{
+                                parts: [{ text: `${systemPrompt}\n\nProject Concept: ${idea}` }]
+                            }]
                         })
                     });
 
@@ -292,10 +167,10 @@
                     loading.style.display = 'none';
                     outputBox.style.display = 'block';
 
-                    if (data.content && data.content[0]) {
-                        outputBox.innerText = data.content[0].text;
+                    if (data.candidates && data.candidates[0].content.parts[0].text) {
+                        outputBox.innerText = data.candidates[0].content.parts[0].text;
                     } else {
-                        outputBox.innerText = currentLang === 'ar' ? 'حدث خطأ في الاتصال بالخدمة، يرجى التأكد من مفتاح الـ API.' : 'Error connecting to service, please check your API key.';
+                        outputBox.innerText = currentLang === 'ar' ? 'حدث خطأ في الاتصال بالخدمة، يرجى التأكد من مفتاح الـ Gemini API.' : 'Error connecting to service, please check your Gemini API key.';
                     }
                 } catch (error) {
                     loading.style.display = 'none';
@@ -306,33 +181,13 @@
                 setTimeout(() => {
                     loading.style.display = 'none';
                     outputBox.style.display = 'block';
-                    if (currentLang === 'ar') {
-                        outputBox.innerText = `📋 التقرير الاستراتيجي الشامل لفكرة: "${idea}"\n` +
-                        `صادر عن: بيزنس ريفيو للاستشارات والتدريب\n\n` +
-                        `1. دراسة الجدوى الشاملة: رأس المال الأولي ونقطة التعادل.\n` +
-                        `2. أبحاث السوق وتحليل المنافسين: حجم السوق والفجوات التسويقية.\n` +
-                        `3. نموذج العمل التجاري: مصادر الإيرادات وهيكل التكاليف.\n` +
-                        `4. الهوية التسويقية وخطة الدخول للسوق (GTM).\n` +
-                        `5. الإطار التشغيلي والقانوني والتراخيص.\n` +
-                        `6. إدارة المخاطر وخطط التخفيف.\n` +
-                        `7. خطة التنفيذ المرحلية من التأسيس حتى التوسع.\n\n` +
-                        `💡 ${t.demoNotice}`;
-                    } else {
-                        outputBox.innerText = `📋 Comprehensive Strategic Report for: "${idea}"\n` +
-                        `Issued by: Business Review Consulting & Training\n\n` +
-                        `1. Comprehensive Feasibility Study: Initial capital & break-even analysis.\n` +
-                        `2. Market Research & Competitor Analysis: Market size & gaps.\n` +
-                        `3. Business Model: Revenue streams & cost structure.\n` +
-                        `4. Marketing Strategy & GTM Plan.\n` +
-                        `5. Operational & Legal Framework.\n` +
-                        `6. Risk Management & Mitigation.\n` +
-                        `7. Execution Roadmap from setup to scale.\n\n` +
-                        `💡 ${t.demoNotice}`;
-                    }
-                }, 1500);
+                    outputBox.innerText = currentLang === 'ar' ? 
+                        `📋 التقرير الاستراتيجي التجريبي لفكرة: "${idea}"\n\nيرجى إدخال مفتاح الـ API لتوليد التقرير المخصص بالكامل.` :
+                        `📋 Demo Strategic Report for: "${idea}"\n\nPlease enter an API key to generate a full report.`;
+                }, 1200);
             }
         }
     </script>
 </body>
-</html>
-"
+            </html>
+            
