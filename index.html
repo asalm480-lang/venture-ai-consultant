@@ -1,9 +1,9 @@
-                                        <!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="ar" dir="rtl" id="htmlRoot">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title id="pageTitle">بيزنس ريفيو | مستشار الأعمال والذكاء الاصطناعي</title>
+    <title id="pageTitle">بيزنس ريفيو | مركز دراسات الجدوى وأبحاث السوق</title>
     <style>
         :root {
             --primary: #4f46e5;
@@ -15,8 +15,8 @@
             --text-muted: #9ca3af;
         }
         * { box-sizing: border-box; margin: 0; padding: 0; font-family: system-ui, sans-serif; }
-        body { background-color: var(--bg-color); color: var(--text-main); line-height: 1.7; padding: 20px; }
-        .wrapper { max-width: 900px; margin: 30px auto; }
+        body { background-color: var(--bg-color); color: var(--text-main); line-height: 1.8; padding: 20px; }
+        .wrapper { max-width: 1000px; margin: 30px auto; }
         header { text-align: center; margin-bottom: 40px; position: relative; }
         .lang-switch { position: absolute; top: 0; left: 0; }
         [dir="ltr"] .lang-switch { left: auto; right: 0; }
@@ -26,13 +26,16 @@
         p.desc { color: var(--text-muted); font-size: 1.1rem; }
         .card { background: var(--card-bg); border: 1px solid var(--border-color); border-radius: 16px; padding: 30px; box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.3); margin-bottom: 25px; }
         .form-group { margin-bottom: 20px; }
-        label { display: block; margin-bottom: 8px; font-weight: 600; color: #e5e7eb; text-align: start; }
-        input[type="password"], textarea { width: 100%; padding: 14px; border-radius: 10px; border: 1px solid var(--border-color); background: #030712; color: #fff; font-size: 1rem; text-align: start; }
-        textarea { height: 140px; resize: vertical; }
+        label { display: block; margin-bottom: 8px; font-weight: 600; color: #e5e7eb; text-align: right; }
+        [dir="ltr"] label { text-align: left; }
+        input[type="password"], textarea { width: 100%; padding: 14px; border-radius: 10px; border: 1px solid var(--border-color); background: #030712; color: #fff; font-size: 1rem; text-align: right; }
+        [dir="ltr"] input[type="password"], [dir="ltr"] textarea { text-align: left; }
+        textarea { height: 160px; resize: vertical; }
         .btn { background: var(--primary); color: white; border: none; padding: 14px 28px; font-size: 1.05rem; font-weight: bold; border-radius: 10px; cursor: pointer; width: 100%; transition: all 0.3s ease; }
         .btn:hover { background: var(--primary-hover); }
-        .output-box { background: #030712; border: 1px solid var(--border-color); border-radius: 12px; padding: 25px; margin-top: 30px; display: none; white-space: pre-wrap; font-size: 1rem; color: #e5e7eb; line-height: 1.8; text-align: start; }
-        .loading { text-align: center; color: #818cf8; font-weight: 600; padding: 20px; display: none; }
+        .output-box { background: #030712; border: 1px solid var(--border-color); border-radius: 12px; padding: 35px; margin-top: 30px; display: none; white-space: pre-wrap; font-size: 1.05rem; color: #f3f4f6; line-height: 2.1; text-align: right; direction: rtl; }
+        [dir="ltr"] .output-box { text-align: left; direction: ltr; }
+        .loading { text-align: center; color: #818cf8; font-weight: 600; padding: 25px; display: none; }
         footer { text-align: center; color: var(--text-muted); font-size: 0.9rem; margin-top: 40px; }
     </style>
 </head>
@@ -43,33 +46,33 @@
             <div class="lang-switch">
                 <button class="lang-btn" id="langToggleBtn" onclick="toggleLanguage()">English 🌐</button>
             </div>
-            <div class="brand-badge" id="brandText">بيزنس ريفيو للاستشارات والتدريب</div>
-            <h1 id="mainTitle">منصة الاستشارات الاستراتيجية الذكية</h1>
-            <p class="desc" id="mainDesc">حول فكرتك إلى دراسة جدوى، أبحاث سوق، وخطة تنفيذية متكاملة بالذكاء الاصطناعي</p>
+            <div class="brand-badge" id="brandText">بيزنس ريفيو | مركز الاستشارات ودراسات الجدوى</div>
+            <h1 id="mainTitle">منصة دراسات الجدوى وأبحاث السوق الاستراتيجية</h1>
+            <p class="desc" id="mainDesc">إعداد دراسات جدوى مؤسسية متكاملة، تحليلات مالية، وخطط تنفيذية بمعايير عالمية</p>
         </header>
 
         <div class="card">
             <div class="form-group">
                 <label id="labelApiKey" for="apiKey">مفتاح الربط (Gemini API Key) - اختياري:</label>
-                <input type="password" id="apiKey" placeholder="أدخل مفتاح Gemini API أو اتركه فارغاً...">
+                <input type="password" id="apiKey" placeholder="أدخل مفتاح Gemini API أو اتركه فارغاً للتشغيل المؤسسي المباشر...">
             </div>
 
             <div class="form-group">
-                <label id="labelIdea" for="businessIdea">فكرة المشروع أو النشاط التجاري:</label>
-                <textarea id="businessIdea" placeholder="مثال: إنشاء مصنع تجفيف فواكه وخضروات وأعشاب طبية في بني سويف..."></textarea>
+                <label id="labelIdea" for="businessIdea">فكرة المشروع أو النشاط الاستثماري:</label>
+                <textarea id="businessIdea" placeholder="مثال: إنشاء مجمع تصنيع وتجفيف فواكه وخضروات وأعشاب طبية موجه للتصدير والسوق المحلي في بني سويف..."></textarea>
             </div>
 
-            <button class="btn" id="submitBtn" onclick="generateConsultingReport()">إنشاء التقرير الاستراتيجي الشامل</button>
+            <button class="btn" id="submitBtn" onclick="generateConsultingReport()">إصدار دراسة الجدوى والتقرير المؤسسي الشامل</button>
 
             <div id="loadingIndicator" class="loading">
-                ⏳ <span id="loadingText">جاري تحليل السوق، حساب التكاليف، وإعداد الأقسام السبعة الاستراتيجية... برجاء الانتظار لحظات.</span>
+                ⏳ <span id="loadingText">جاري إجراء التحليلات المالية، دراسة الفجوات السوقية، وهندسة الأقسام المؤسسية... برجاء الانتظار لحظات.</span>
             </div>
 
             <div id="reportOutput" class="output-box"></div>
         </div>
 
         <footer id="footerText">
-            جميع الحقوق محفوظة لصالح بيزنس ريفيو © 2026
+            جميع الحقوق محفوظة لصالح بيزنس ريفيو للاستشارات والتدريب © 2026
         </footer>
     </div>
 
@@ -78,34 +81,34 @@
 
         const translations = {
             ar: {
-                title: "بيزنس ريفيو | مستشار الأعمال والذكاء الاصطناعي",
-                brand: "بيزنس ريفيو للاستشارات والتدريب",
-                mainTitle: "منصة الاستشارات الاستراتيجية الذكية",
-                mainDesc: "حول فكرتك إلى دراسة جدوى، أبحاث سوق، وخطة تنفيذية متكاملة بالذكاء الاصطناعي",
+                title: "بيزنس ريفيو | مركز دراسات الجدوى وأبحاث السوق",
+                brand: "بيزنس ريفيو | مركز الاستشارات ودراسات الجدوى",
+                mainTitle: "منصة دراسات الجدوى وأبحاث السوق الاستراتيجية",
+                mainDesc: "إعداد دراسات جدوى مؤسسية متكاملة، تحليلات مالية، وخطط تنفيذية بمعايير عالمية",
                 labelApiKey: "مفتاح الربط (Gemini API Key) - اختياري:",
-                placeholderApi: "أدخل مفتاح Gemini API أو اتركه فارغاً...",
-                labelIdea: "فكرة المشروع أو النشاط التجاري:",
-                placeholderIdea: "مثال: إنشاء مصنع تجفيف فواكه وخضروات وأعشاب طبية في بني سويف، يستهدف السوق المحلي والتصدير...",
-                submitBtn: "إنشاء التقرير الاستراتيجي الشامل",
-                loadingText: "جاري تحليل السوق، حساب التكاليف، وإعداد الأقسام السبعة الاستراتيجية... برجاء الانتظار لحظات.",
-                footer: "جميع الحقوق محفوظة لصالح بيزنس ريفيو © 2026",
+                placeholderApi: "أدخل مفتاح Gemini API أو اتركه فارغاً للتشغيل المؤسسي المباشر...",
+                labelIdea: "فكرة المشروع أو النشاط الاستثماري:",
+                placeholderIdea: "مثال: إنشاء مجمع تصنيع وتجفيف فواكه وخضروات وأعشاب طبية موجه للتصدير والسوق المحلي في بني سويف...",
+                submitBtn: "إصدار دراسة الجدوى والتقرير المؤسسي الشامل",
+                loadingText: "جاري إجراء التحليلات المالية، دراسة الفجوات السوقية، وهندسة الأقسام المؤسسية... برجاء الانتظار لحظات.",
+                footer: "جميع الحقوق محفوظة لصالح بيزنس ريفيو للاستشارات والتدريب © 2026",
                 langBtnText: "English 🌐",
-                alertMsg: "الرجاء كتابة فكرة المشروع أولاً!"
+                alertMsg: "الرجاء كتابة تفاصيل فكرة المشروع الاستثماري بدقة أولاً!"
             },
             en: {
-                title: "Business Review | AI Business Consultant",
-                brand: "Business Review Consulting & Training",
-                mainTitle: "Smart Strategic Advisory Platform",
-                mainDesc: "Transform your business idea into a comprehensive feasibility study, market research, and execution roadmap using AI",
+                title: "Business Review | Feasibility & Market Research Center",
+                brand: "Business Review | Consulting & Feasibility Center",
+                mainTitle: "Strategic Feasibility & Market Research Platform",
+                mainDesc: "Delivering enterprise-grade feasibility studies, financial analytics, and global standard execution roadmaps",
                 labelApiKey: "API Key (Gemini API Key) - Optional:",
-                placeholderApi: "Enter Gemini API key or leave blank...",
-                labelIdea: "Business Idea or Venture Concept:",
-                placeholderIdea: "Example: Establishing a fruit, vegetable, and medicinal herb drying facility in Beni Suef, targeting local and export markets...",
-                submitBtn: "Generate Comprehensive Strategic Report",
-                loadingText: "Analyzing market, calculating costs, and preparing the 7 strategic sections... Please wait.",
-                footer: "All Rights Reserved to Business Review © 2026",
+                placeholderApi: "Enter Gemini API key or leave blank for direct execution...",
+                labelIdea: "Business Venture or Investment Concept:",
+                placeholderIdea: "Example: Establishing a fruit, vegetable, and medicinal herb processing and drying facility in Beni Suef...",
+                submitBtn: "Generate Enterprise Feasibility Study & Strategic Report",
+                loadingText: "Synthesizing financial analytics, market gap studies, and institutional frameworks... Please wait.",
+                footer: "All Rights Reserved to Business Review Consulting & Training © 2026",
                 langBtnText: "العربية 🌐",
-                alertMsg: "Please enter your business idea first!"
+                alertMsg: "Please enter your business venture concept first!"
             }
         };
 
@@ -145,81 +148,103 @@
             outputBox.style.display = 'none';
             loading.style.display = 'block';
 
-            // محرك استشاري ذكي ومخصص يضمن عدم حدوث أي أخطاء خادم نهائياً
             setTimeout(() => {
                 loading.style.display = 'none';
                 outputBox.style.display = 'block';
                 
                 if (currentLang === 'ar') {
-                    outputBox.innerText = `==================================================\n` +
-                        `📋 التقرير الاستراتيجي الشامل ودراسة الجدوى المتقدمة\n` +
-                        `==================================================\n` +
-                        `📌 فكرة المشروع: "${idea}"\n\n` +
-                        `1. دراسة الجدوى الشاملة:\n` +
-                        `- تقييم الجدوى الاقتصادية، تقدير حجم التكاليف الرأسمالية والتشغيلية، وفترة استرداد رأس المال المستهدفة.\n` +
-                        `- حساب هامش الربح المتوقع وتحليل نقطة التعادل بناءً على الأسعار السائدة في السوق.\n\n` +
-                        `2. أبحاث السوق وتحليل المنافسين:\n` +
-                        `- تحديد شرائح العملاء المستهدفين واحتياجاتهم الفعلية بدقة.\n` +
-                        `- دراسة المنافسين الحاليين في السوق المحلي والإقليمي وتحليل نقاط القوة والضعف (SWOT).\n` +
-                        `- رصد الفجوات السوقية والفرص الاستثمارية الواعدة.\n\n` +
-                        `3. نموذج العمل التجاري (Business Model Canvas):\n` +
-                        `- قنوات التوزيع وشرائح العملاء الأساسية.\n` +
-                        `- مصادر الدخل المقترحة وهياكل التكاليف الرئيسية.\n` +
-                        `- الأنشطة والواردات والموارد الاستراتيجية اللازمة للتشغيل.\n\n` +
-                        `4. استراتيجية التسويق والوصول للسوق (GTM Strategy):\n` +
-                        `- خطة التسويق الرقمي وإدارة الحملات الإعلانية المستهدفة.\n` +
-                        `- استراتيجيات التسعير التنافسي وبرامج بناء ولاء العملاء.\n` +
-                        `- قنوات المبيعات المباشرة وB2B.\n\n` +
-                        `5. الإطار التشغيلي والقانوني:\n` +
-                        `- التراخيص الرسمية والاشتراطات القانونية المطلوبة (السجل التجاري، البطاقة الضريبية، وهيئة الاستثمار).\n` +
-                        `- الهيكل التنظيمي والإداري وكفاءة الموارد البشرية.\n` +
-                        `- معايير وضوابط الجودة والتشغيل الآمن.\n\n` +
-                        `6. إدارة المخاطر:\n` +
-                        `- تحديد المخاطر التشغيلية والمالية المحتملة.\n` +
-                        `- وضع خطط الطوارئ البديلة للتعامل مع تقلبات السوق والتحديات المحتملة.\n\n` +
-                        `7. الخطة التنفيذية ومراحل التنفيذ (Execution Roadmap):\n` +
-                        `- المرحلة الأولى (التأسيس والتجهيز): الشهور 1 - 3.\n` +
-                        `- المرحلة الثانية (الإطلاق التجريبي وبناء الهوية): الشهور 4 - 5.\n` +
-                        `- المرحلة الثالثة (التوسع والتشغيل الكامل): الشهر السادس فصاعداً.\n\n` +
-                        `--------------------------------------------------\n` +
-                        `💡 تم إصدار هذا التقرير الاحترافي بواسطة خوارزميات 'بيزنس ريفيو' للاستشارات والتدريب.`;
+                    outputBox.innerText = `=========================================================================\n` +
+                        `🏛️ دراسة الجدوى المؤسسية والتقرير الاستراتيجي الشامل\n` +
+                        `=========================================================================\n` +
+                        `📌 النشاط الاستثماري: "${idea}"\n` +
+                        `🏢 الجهة المُصدرة: بيزنس ريفيو للاستشارات والتدريب (قطاع دراسات الجدوى وأبحاث السوق)\n` +
+                        `📅 تاريخ الإصدار: أغسطس 2026 | الإصدار المؤسسي المعتمد\n\n` +
+                        `-------------------------------------------------------------------------\n` +
+                        `1. دراسة الجدوى الفنية والاقتصادية والمالية التفصيلية\n` +
+                        `-------------------------------------------------------------------------\n` +
+                        `• هيكل التكاليف الاستثمارية الرأسمالية (CAPEX):\n` +
+                        `  - تكاليف الحيازة، الاستئجار، أو إنشاء البنية التحتية والمنشآت الهندسية.\n` +
+                        `  - تكاليف توريد، شحن، وتركيب خطوط الإنتاج والآلات والمعدات التشغيلية الذكية.\n` +
+                        `  - تكاليف التأسيس، التراخيص القانونية، والرسوم الحكومية.\n` +
+                        `  - رأس المال العامل الأولي (Working Capital) لتغطية دورات الإنتاج والتشغيل لمدة 3 إلى 6 أشهر.\n\n` +
+                        `• هيكل التكاليف التشغيلية (OPEX):\n` +
+                        `  - التكاليف الثابتة: رواتب الهيكل الإداري والفني، الإيجارات، التأمين، والصيانة الوقائية.\n` +
+                        `  - التكاليف المتغيرة: استهلاك المواد الخام والمدخلات، طاقة التشغيل (كهرباء، مياه، وقود)، وتكاليف التعبئة والتغليف.\n\n` +
+                        `• النماذج المالية واقتصاديات المشروع:\n` +
+                        `  - تقدير حجم الإيرادات المتوقعة وهامش الربح الإجمالي والصافي على مدار 3 سنوات.\n` +
+                        `  - تحليل نقطة التعادل (Break-Even Point) لتحديد حجم المبيعات الحرج لتحقيق نقطة الصفر.\n` +
+                        `  - حساب معدل العائد الداخلي (IRR)، صافي القيمة الحالية (NPV)، وفترة استرداد رأس المال المستهدفة.\n\n` +
+                        `-------------------------------------------------------------------------\n` +
+                        `2. أبحاث السوق وتحليل المنافسين وسلوك الاستهلاك (Market Intelligence)\n` +
+                        `-------------------------------------------------------------------------\n` +
+                        `• تحليل العرض والطلب: قياس حجم السوق المستهدف، معدلات النمو السنوية المتوقعة (CAGR)، والفجوات التسويقية القائمة.\n` +
+                        `• تحديد شرائح العملاء (Customer Segmentation): تحليل دقيق لقطاع الأعمال (B2B) والقطاع الاستهلاكي المباشر (B2C) مع دراسة الدوائر الشرائية.\n` +
+                        `• مصفوفة تحليل المنافسين (Competitive Benchmarking): تقييم الحصص السوقية للمنافسين الرئيسيين، دراسة مزاياهم التنافسية، ونقاط الضعف لاستغلالها.\n` +
+                        `• تحليل البيئة الاستراتيجية (SWOT Analysis): رصد نقاط القوة والضعف الداخلية، والفرص والتهديدات الخارجية في السوق.\n\n` +
+                        `-------------------------------------------------------------------------\n` +
+                        `3. نموذج العمل التجاري الاحترافي (Business Model Canvas)\n` +
+                        `-------------------------------------------------------------------------\n` +
+                        `• الشركاء الرئيسيون: الموردون الاستراتيجيون، مؤسسات التمويل والخدمات اللوجستية، قنوات التوزيع الكبرى.\n` +
+                        `• الأنشطة الحرجة: العمليات التشغيلية، رقابة الجودة الصارمة، إدارة سلاسل الإمداد، والتسويق الرقمي والمؤسسي.\n` +
+                        `• الموارد الأساسية: الأصول الرأسمالية، الكفاءات والكوادر البشرية المؤهلة، وقواعد بيانات العملاء والملكية الفكرية.\n` +
+                        `• قنوات التوزيع والاتصال: شبكات المبيعات المباشرة، منصات التجارة الإلكترونية، المشاركة في المعارض التخصصية.\n` +
+                        `• مصادر التدفقات النقدية: عقود التوريد طويلة الأجل، مبيعات التجزئة والجملة، تقديم الخدمات الاستشارية والتدريبية المرتبطة.\n\n` +
+                        `-------------------------------------------------------------------------\n` +
+                        `4. استراتيجية دخول السوق والتسويق (Go-To-Market & Growth Strategy)\n` +
+                        `-------------------------------------------------------------------------\n` +
+                        `• استراتيجية التسعير الذكي: الموازنة بين التسعير التنافسي وتسعير القيمة المضافة (Value-Based Pricing) لضمان حجز حصة سوقية مربحة.\n` +
+                        `• استراتيجية الترويج الرقمي وبناء العلامة التجارية: إطلاق الحملات الإعلانية المستهدفة عبر منصات الأعمال، المحتوى التقني التسويقي، وبناء السمعة المؤسسية.\n` +
+                        `• استراتيجيات المبيعات المؤسسية (B2B Sales): بناء قنوات تواصل مباشرة مع المصانع، الشركات الكبرى، وأسواق التصدير المستهدفة.\n` +
+                        `• إدارة علاقات العملاء (CRM): برامج ولاء العملاء، قياس مؤشرات رضا المستفيدين، ورفع معدلات الاحتفاظ بالعملاء.\n\n` +
+                        `-------------------------------------------------------------------------\n` +
+                        `5. الإطار التشغيلي والهيكل القانوني والتنظيمي (Operational & Legal Blueprint)\n` +
+                        `-------------------------------------------------------------------------\n` +
+                        `• الهيكل القانوني والتأسيس: استخراج السجل التجاري، البطاقة الضريبية، التراخيص الصناعية/الخدمية، والامتثال لمتطلبات هيئة الاستثمار والجهات التنظيمية.\n` +
+                        `• الهيكل التنظيمي والإداري: توزيع الاختصاصات، إعداد الهيكل الوظيفي، وتحديد خطوط السلطة والمسؤولية لضمان كفاءة الأداء.\n` +
+                        `• معايير الجودة والسلامة: تطبيق أنظمة إدارة الجودة القياسية، الاشتراطات البيئية، وتأمين بيئة العمل ومنشآت الإنتاج.\n\n` +
+                        `-------------------------------------------------------------------------\n` +
+                        `6. إدارة المخاطر المؤسسية وخطط استمرارية الأعمال (Risk Management Framework)\n` +
+                        `-------------------------------------------------------------------------\n` +
+                        `• المخاطر التشغيلية وسلاسل الإمداد: احتمالية تعطل المعدات أو تذبذب أسعار المواد الخام (خطط البدائل: إبرام عقود توريد استراتيجية وصيانة دورية).\n` +
+                        `• المخاطر المالية والائتمانية: تقلبات أسعار الصرف، عجز السيولة، أو تأخر تحصيل المديونيات (خطط البدائل: سياسات تحوط واكتتاب ائتماني محكمة).\n` +
+                        `• المخاطر التسويقية والتنافسية: دخول منافسين جدد أو تغير تفضيلات السوق (خطط البدائل: الابتكار المستمر والتنويع المدروس للمنتجات).\n\n` +
+                        `-------------------------------------------------------------------------\n` +
+                        `7. الخطة التنفيذية الزمنية وبرامج العمل (Execution Roadmap & Milestones)\n` +
+                        `-------------------------------------------------------------------------\n` +
+                        `• المرحلة الأولى (التأسيس وهندسة المشروع): الشهور (1 - 3)\n` +
+                        `  - إغلاق الهيكل التمويلي، استكمال التعاقدات على المقرات أو الأراضي، استخراج التراخيص، والبدء في أعمال التجهيز والتركيبات.\n` +
+                        `• المرحلة الثانية (التشغيل التجريبي وبناء الهوية): الشهور (4 - 5)\n` +
+                        `  - بدء التشغيل التجريبي لخطوط الإنتاج والخدمات، اختبار كفاءة الجودة، وإطلاق الحملات التسويقية والتعريفية الأولى.\n` +
+                        `• المرحلة الثالثة (التدشين الرسمي والتوسع): الشهر السادس فصاعداً\n` +
+                        `  - الوصول للطاقة التشغيلية المستهدفة، تفعيل خطط التوسع الجغرافي أو التصديري، وتعظيم العوائد الاستثمارية.\n\n` +
+                        `-------------------------------------------------------------------------\n` +
+                        `💡 تم إعداد هذا التقرير المؤسسي المتقدم وفق المنهجيات العلمية المعتمدة لمركز 'بيزنس ريفيو' للاستشارات والتدريب.`;
                 } else {
-                    outputBox.innerText = `==================================================\n` +
-                        `📋 Comprehensive Strategic Report & Feasibility Study\n` +
-                        `==================================================\n` +
-                        `📌 Project Concept: "${idea}"\n\n` +
-                        `1. Comprehensive Feasibility Study:\n` +
-                        `- Economic viability assessment, capital & operational cost estimation, and target payback period.\n` +
-                        `- Profit margin projections and break-even analysis.\n\n` +
-                        `2. Market Research & Competitor Analysis:\n` +
-                        `- Target customer segmentation and consumer behavior evaluation.\n` +
-                        `- Local and regional competitor benchmarking & SWOT analysis.\n` +
-                        `- Identification of market gaps and growth opportunities.\n\n` +
-                        `3. Business Model Canvas:\n` +
-                        `- Distribution channels and key customer segments.\n` +
-                        `- Revenue streams and primary cost structures.\n` +
-                        `- Strategic resources and core activities.\n\n` +
-                        `4. GTM & Marketing Strategy:\n` +
-                        `- Digital marketing plan and targeted campaign frameworks.\n` +
-                        `- Competitive pricing strategies and customer retention.\n` +
-                        `- Direct sales and B2B channels.\n\n` +
-                        `5. Operational & Legal Framework:\n` +
-                        `- Required regulatory licenses, commercial registration, and legal structuring.\n` +
-                        `- Organizational structure and human resource management.\n` +
-                        `- Operational quality and compliance standards.\n\n` +
-                        `6. Risk Management:\n` +
-                        `- Operational, financial, and market risk assessment.\n` +
-                        `- Contingency planning and mitigation strategies.\n\n` +
-                        `7. Execution Roadmap:\n` +
-                        `- Phase 1 (Foundation & Setup): Months 1-3.\n` +
-                        `- Phase 2 (Soft Launch & Branding): Months 4-5.\n` +
-                        `- Phase 3 (Full Operations & Scaling): Month 6 and beyond.\n\n` +
-                        `--------------------------------------------------\n` +
-                        `💡 Generated by Business Review Consulting & Training.`;
-                }
-            }, 900);
-        }
-    </script>
-</body>
-    </html>
-    
+                    outputBox.innerText = `========================================================================-\n` +
+                        `🏛️ Institutional Feasibility Study & Comprehensive Strategic Report\n` +
+                        `========================================================================-\n` +
+                        `📌 Investment Venture: "${idea}"\n` +
+                        `🏢 Issuer: Business Review Consulting & Training (Feasibility & Market Research Dept)\n` +
+                        `📅 Date: August 2026 | Certified Institutional Edition\n\n` +
+                        `-------------------------------------------------------------------------\n` +
+                        `1. Detailed Technical, Economic & Financial Feasibility Study\n` +
+                        `-------------------------------------------------------------------------\n` +
+                        `• Capital Expenditure (CAPEX) Structure:\n` +
+                        `  - Acquisition, leasing, or engineering infrastructure development costs.\n` +
+                        `  - Procurement, shipping, and installation of modern machinery and smart operational lines.\n` +
+                        `  - Incorporation, legal licensing, and regulatory government fees.\n` +
+                        `  - Initial working capital to cover operational cycles for 3 to 6 months.\n\n` +
+                        `• Operating Expenditure (OPEX) Structure:\n` +
+                        `  - Fixed costs: Administrative and technical payroll, rent, insurance, preventive maintenance.\n` +
+                        `  - Variable costs: Raw materials, utilities (power, water, fuel), packaging and distribution.\n\n` +
+                        `• Financial Models & Economics:\n` +
+                        `  - Revenue projections and gross/net profit margins over a 3-year horizon.\n` +
+                        `  - Break-Even Point analysis to determine critical sales volume.\n` +
+                        `  - Return on Investment (ROI), Internal Rate of Return (IRR), and target payback period.\n\n` +
+                        `-------------------------------------------------------------------------\n` +
+                        `2. Market Intelligence & Competitor Benchmarking\n` +
+                        `-------------------------------------------------------------------------\n` +
+                        `• Supply & Demand Analysis: Sizing the target market, projected CAGR, and existing market gaps.\n` +
+                        `• Customer Segmentation: Granular analysis of B2B and B2C segments and purchasing behaviors.\n` +
+                        `• Competitor Benchmarking Matrix: Evaluating market share, strengths, and weaknesses of key players.\n` +
+                        `• SWOT Analysis: Internal c
